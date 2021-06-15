@@ -1,7 +1,5 @@
 #
-# Copyright (C) 2020 The Android Open Source Project
-# Copyright (C) 2020 The TWRP Open Source Project
-# Copyright (C) 2020 SebaUbuntu's TWRP device tree generator
+# Copyright (C) 2021 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/askey/adt3
+DEVICE_PATH := device/askey/sti6140d360
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -60,11 +58,11 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_HEADER_ARCH := arm
-TARGET_KERNEL_SOURCE := kernel/askey/adt3
-TARGET_KERNEL_CONFIG := adt3_defconfig
+TARGET_KERNEL_SOURCE := kernel/askey/sti6140d360
+TARGET_KERNEL_CONFIG := sti6140d360_defconfig
 
 # Platform
-TARGET_BOARD_PLATFORM := deadpool
+TARGET_BOARD_PLATFORM := sti6140d360
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
@@ -78,5 +76,4 @@ PLATFORM_VERSION := 16.1.0
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true

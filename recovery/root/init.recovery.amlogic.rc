@@ -2,8 +2,6 @@ on early-init
     insmod /boot/dwc3.ko
 
 on init
-    chmod 0777 /sbin/systemcontrol_static
-    chmod 0777 /sbin/remotecfg
 
 on fs
 
@@ -26,7 +24,7 @@ on boot
     mkdir /config/usb_gadget/g1/strings/0x409 0770
     write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
     write /config/usb_gadget/g1/strings/0x409/manufacturer droidlogic
-    write /config/usb_gadget/g1/strings/0x409/product deadpool
+    write /config/usb_gadget/g1/strings/0x409/product ${ro.product.name}
     mkdir /config/usb_gadget/g1/functions/ffs.adb
     mkdir /config/usb_gadget/g1/functions/ffs.fastboot
     mkdir /config/usb_gadget/g1/functions/mtp.gs0
@@ -39,7 +37,7 @@ on boot
     setprop sys.usb.configfs 1
     setprop sys.usb.controller ${sys.usb.controller}
 
-service console /system/bin/sh
+service console /sbin/sh
     seclabel u:r:shell:s0
     console
 
@@ -59,10 +57,8 @@ service systemcontrol /sbin/systemcontrol_static /sbin/mesondisplay.cfg
     oneshot
     seclabel u:r:recovery:s0
 
-on property:sys.usb.config=none && property:sys.usb.configfs=1
-    setprop sys.usb.ffs.ready 0
 
-on property:init.svc.adbd=stopped
+on property:sys.usb.config=none && property:sys.usb.configfs=1
     setprop sys.usb.ffs.ready 0
 
 on property:sys.usb.config=mtp && property:sys.usb.configfs=1

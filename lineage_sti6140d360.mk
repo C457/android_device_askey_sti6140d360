@@ -1,7 +1,5 @@
 #
-# Copyright (C) 2020 The Android Open Source Project
-# Copyright (C) 2020 The TWRP Open Source Project
-# Copyright (C) 2020 SebaUbuntu's TWRP device tree generator
+# Copyright (C) 2021 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,16 +20,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from adt3 device
-$(call inherit-product, device/askey/adt3/device.mk)
+$(call inherit-product, device/askey/sti6140d360/device.mk)
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
-$(call inherit-product, vendor/omni/config/gsm.mk)
+# Inherit some common LineageOS stuff.
+$(call inherit-product, vendor/lineage/config/common_full_tv.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := adt3
-PRODUCT_NAME := omni_adt3
-PRODUCT_BRAND := ADT-3
-PRODUCT_MODEL := ADT-3
+PRODUCT_DEVICE := sti6140d360
+PRODUCT_NAME := lineage_sti6140d360
+PRODUCT_BRAND := Onn
+PRODUCT_MODEL := sti6140d360
 PRODUCT_MANUFACTURER := askey
-PRODUCT_RELEASE_NAME := ADT-3 ADT-3
+PRODUCT_RELEASE_NAME := sti6140d360
